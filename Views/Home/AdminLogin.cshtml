@@ -1,0 +1,97 @@
+﻿@model EDUFA1.Models.UploadedMaterialsModelView
+@{
+    ViewBag.Title = "AdminLogin";
+}
+<style>
+    .Heading {
+        margin-top: 10%;
+        text-align: justify;
+        color: peru;
+    }
+
+    .title {
+        color: blueviolet;
+        font-weight: bold;
+        margin-left: 7%;
+        font-size: 37px;
+    }
+
+    .btn {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        margin-left: 16%;
+        margin-top: 8%;
+    }
+
+        .btn:hover {
+            background-color: dimgrey;
+        }
+
+    .body {
+        font-size: 20px;
+        padding: 30px 0;
+    }
+</style>
+@using (Html.BeginForm("ApprovedMaterials", "Home", FormMethod.Post, new { enctype = "multipart/form-data", style = "padding: 10%;padding-top: 0;", id = "AdminLoginForm" }))
+{
+    @Html.ValidationSummary(true)
+    
+        <section class="h-100 gradient-form" style="background-color: #eee;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100" style="margin-top:7%;">
+                    <div class="col-xl-10">
+                        <div class="card rounded-3 text-black">
+                            <div class="row g-0">
+                                <div class="col-lg-6">
+                                    <div class="card-body p-md-5 mx-md-4" style="padding-bottom:0% !important">
+
+                                        <div class="text-center">
+                                            <img src="~/Content/Images/loginlogo.png"
+                                                 style="width: 185px;" alt="logo">
+                                            <h4 class="mt-1 mb-5 pb-1">We are The EDUFA Team</h4>
+                                        </div>
+
+                                        <form>
+                                            <p>Please login to your account</p>
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="form2Example11">Username</label>
+                                                @Html.TextBoxFor(m => m.LoginID, new { @class = "form-control", style = "margin-left:1%; max-width:63%", placeholder = "Write Your Name.." })
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="form2Example22">Password</label>
+                                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", style = "margin-left:1%; max-width:63%", placeholder = "Write Your Name.." })
+                                            </div>
+
+                                            <div class="text-center pt-1 mb-5 pb-1" style="margin-bottom:1rem !important;">
+                                                <button class="button btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
+                                                    Log
+                                                    in
+                                                </button>
+                                                </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                        <h4 class="mb-4">We are Giving More than Just Education.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+}

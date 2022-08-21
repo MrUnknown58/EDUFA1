@@ -1,0 +1,68 @@
+﻿@model EDUFA1.Models.UploadedMaterialsModelView
+@{
+    ViewBag.Title = "UploadMaterials";
+}
+<script src="@Url.Content("~/Content/js/UploadedMaterialCtrl.js")"></script>
+<style>
+    .title {
+        color: blue;
+        margin-left: 24%;
+        font-size: 40px;
+        font-family: cursive;
+    }
+    .subheading {
+        font-size: 30px;
+        color: brown;
+        padding: 1% 1%;
+    }
+    .quote {
+        padding: 1% 2%;
+        font-family: cursive;
+        color: brown;
+    }
+    .underline {
+        text-decoration: underline;
+        text-decoration-line: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-style: unset;
+        text-decoration-color: currentColor;
+    }
+</style>
+@using (Html.BeginForm("SaveFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data", style = "padding: 10%;padding-top: 0;", id = "contact" }))
+{
+    @Html.ValidationSummary(true)
+    <form>
+        <div class="d-flex" id="wrapper" style="font-size: large; font-style: italic;">
+            <div id="main" class="container-fluid">
+                <div class="formBox">
+                    <div class="title underline">
+                        <span>Upload Your Study Materials</span>
+                    </div>
+                    <hr />
+                    <div class="quote">
+                        “The best way to not feel hopeless is to get up and do something. Don’t wait for good things to happen to you. If you go out and make some good things happen, you will fill the world with hope, you will fill yourself with hope.”
+                    </div>
+                    <div style="padding:2%">
+                        <div class="subheading underline">Enter Your Name:</div>
+
+                        @Html.TextBoxFor(Model => Model.UploadedBy, new { @class = "form-control", style = "margin-left:1%; max-width:27%", placeholder = "Write Your Name.." })
+                        <div class="subheading underline">Enter Subject Name:</div>
+
+                        @Html.TextBoxFor(Model => Model.File_Subject, new { @class = "form-control", style = "margin-left:1%; max-width:27%", placeholder = "Write Your Answer.." })
+                        @*<input type="file" id="FilePath" name="myfile" style="margin-left:1%" />*@
+                        <div class="subheading underline">Please Select File with following extension<span style="color:red">*</span>:<span style="color:red">(ppt,pdf,jgp,png,etc)</span><hr style="width:66%" /></div>
+                        <label for="myfile" style="margin-left:1%">Select a file:</label>
+                        @Html.TextBoxFor(m => m.FileName, new { @class = "frm", type = "file" })
+                        <div class="subheading underline">Enter Remarks:</div>
+                        @Html.TextBoxFor(Model => Model.Remark, new { @class = "form-control", style = "margin-left:1%; max-width:27%", placeholder = "Write Your Answer.." })
+                        <br /><br />
+                        @*<input type="submit"style="margin-left:40%" />*@
+                    <div style="text-align:center">
+                        <button class="button btn" style="background-color: darkturquoise;" type="submit">Submit</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+}

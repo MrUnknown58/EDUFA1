@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "KnowMore";
+}
+
+<h2>KnowMore</h2>
+
+@{
+    ViewBag.Title = "FrontPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form .row {
+        margin-bottom: 4%;
+    }
+
+    .title {
+        font-size: 40px;
+        color: blue;
+        font-style: initial;
+        margin-left: 31%;
+    }
+    .content {
+        padding: 1% 7%;
+        font-family: initial;
+        line-height: 1.5;
+    }
+    }
+</style>
+@using (Html.BeginForm("KnowMore", "Home", FormMethod.Post, new { enctype = "multipart/form-data", style = "padding: 10%;padding-top: 0;", id = "knowmore" }))
+{
+    @Html.ValidationSummary(true)
+    <form>
+        <div class="d-flex" id="wrapper" style="font-size: large; font-style: italic;">
+            <div id="main" class="container-fluid">
+                @*<h1 style="padding:50%">Under Construction...</h1>*@
+                <div class="formBox" style="margin-top:53px;">
+                    <div class="title">Education For All</div>
+                    <hr />
+                    <div class="content">
+                        Short Speech on Education for All
+                        Category: Speech (English)
+                        On January 12, 2019 By Ananda
+
+                        I wish to call for attentiveness from all the students and teachers present as I deliver my speech on education for all.
+
+                        Education for all movement commonly referred to as “EFA” was established to give effect to article 26 of the Universal Declaration of Human rights (UDHR) which gives the right to education to all persons. The movement is steered by a global organization, UNESCO (United Nation Educational, Scientific and Cultural Organization) to remedy disparities in education sector all over the world.
+
+
+                        The movement is aimed at furthering education to all persons. According to UNESCO in the movement, quality education is to be accorded to all persons at all stages of life and regardless of their gender. UNESCO has through the movement considered education to children as well as to adults.
+
+                        Through education for all movement, early childhood education has been treated as a matter of universal concern. UNESCO through the movement has acted as to make it a necessity that children be taken through early childhood education to have proper educational backgrounds and to bring them to literacy early enough.
+
+                        Education for All movement has taken note of high illiteracy rates among adults and have put their best foot forward to ensure they accommodate them in the education systems of the world. Increasing literacy rates among adults have been among the chief objectives of the education for all movement.
+
+                        The movement noted gender disparity in the education sector and more particularly, the discrimination of women and girls in so far as access to education is concerned. It, therefore, took upon itself to ensure equity and set limits within which it was to have achieved its objective of having women and girls fully involved in education and to have zero discrimination based on gender in the education sector.
+
+                        All that the movement seeks to have in place is uniformity in access of education to all persons in the world. It seeks to have inclusivity and a regular pattern of education all over the world. It mandates the media and other authorities with the obligation to further its objectives.
+
+                        I wish to thank all of you for remaining attentive and cooperative all along as I gave you my speech. I highly appreciate.
+                    </div>
+                    </div>
+                <div class="block">
+                    lorem23
+                </div>
+                </div>
+            </div>
+    </form>
+
+
+}

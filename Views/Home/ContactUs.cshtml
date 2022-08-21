@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+}
+<style>
+    .image1 {
+        height: 140px;
+        margin-left: 8%;
+        padding-bottom:1%;
+    }
+    .names {
+        margin-left: 8%;
+        font-family: system-ui;
+        color: brown;
+        padding-bottom:7px;
+    }
+    
+    .links{
+        display:block;
+    }
+    .title {
+        color: blue;
+        /*margin-left: 31%;*/
+        font-size: 40px;
+        font-family: emoji;
+    }
+    .heading {
+        font-family: cursive;
+        padding: 4% 1%;
+    }
+    .mission , .vision , .vis , .miss{
+        padding-bottom: 1%;
+        display: block;
+    }
+    .underline {
+        text-decoration: underline;
+        text-decoration-line: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-style: double;
+        text-decoration-color: currentColor;
+    }
+</style>
+@using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { enctype = "multipart/form-data", style = "padding: 10%;padding-top: 0;", id = "contact" }))
+{
+    @Html.ValidationSummary(true)
+    <form>
+        <div class="d-flex" id="wrapper" style="font-size: large; font-style: italic;">
+            <div id="main" class="container-fluid">
+                <div class="formBox" style="margin-top:102px; padding:0;">
+                    <div class="heading">
+                        <div class="title underline">
+                            Our Motto<hr />
+                        </div>
+                        <div class="vision">
+                            <span class="vis"><u>VISION :</u></span>To ensure universal access to quality education for establishing literate society.
+                        </div>
+                        <div class="mission">
+                            <span class="miss"><u>MISSION : </u></span>Providing free and compulsory quality education at elementary level and improving the standard of secondary and higher secondary level, and also improving adult literacy.
+                        </div>
+                    </div>
+
+
+
+                    <div class="title underline" style="padding-left:1%">
+                        Our Team
+                    </div>
+                    <div class="row">
+                        <div style="padding:0% 10%">
+                            <div class="firstimage">
+                                <img class="image1" src="~/Content/Images/Sanu.png" />
+
+                            </div>
+                            <div class="names">
+                                <span>Sanu Singh</span>
+                                <div class="links">
+                                    <a href="https://www.linkedin.com/in/sanu-singh-147318220/" target="_blank"><img src="~/Content/Images/linkedin.png" style="height:24px" /></a>
+                                    <a href="https://twitter.com/sanusin58?t=8CW4KomWiG8r1fYX6pZ-ZA&s=09" target="_blank"><img src="~/Content/Images/twitter.png" style="height:24px" /></a>
+                                    <a href="https://www.instagram.com/sanusingh1603/" target="_blank"><img src="~/Content/Images/insta.png" style="height:24px" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding:0% 10%">
+                            <div class="firstimage">
+                                <img class="image1" src="~/Content/Images/Sanu.png" />
+
+                            </div>
+                            <div class="names">
+                                <span>Mainak Chakraborty</span>
+                                <div class="links">
+                                    <a href=" https://www.linkedin.com/in/mainak-chakraborty-23414921b" target="_blank"><img src="~/Content/Images/linkedin.png" style="height:24px" /></a>
+                                    <span style="display:block"> Email: mchakrabortyofficial03@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </form>
+}

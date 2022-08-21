@@ -1,0 +1,92 @@
+﻿@model EDUFA1.Models.UploadedFileWithCredentials
+@{
+    ViewBag.Title = "ApprovedMaterials";
+}
+
+    @Html.ValidationSummary(true)
+        <div class="d-flex" id="wrapper" style="font-size: large; font-style: italic;">
+            <div id="main" class="container-fluid">
+
+                <button type="button" id="launchmodalbtn" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                    Launch demo modal
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">...</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="formBox" style="margin-top:102px; padding:0;">
+                    <h1>Materials</h1>
+                    <div class="row">
+                        @*foreach p in @Model{
+                @Html.TextBoxFor(p.File_Subject, new { @class = "form-control", style = "margin-left:1%; max-width:27%", placeholder = "Write Your Name.." })}*@
+                        <table class="table table-hover" style="margin-left:1%;">
+                            <thead>
+                                <tr>
+                                    <th>SlNo</th>
+                                    <th>Uploaded By</th>
+                                    <th>Subject</th>
+                                    <th>File Name</th>
+                                    <th>Remark</th>
+                                    <th>File</th>
+                                    <th>Approved</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int i = 1;
+                                }
+                                @foreach (var val in @Model.files)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@val.UploadedBy</td>
+                                        <td>@val.File_Subject</td>
+                                        <td>@val.FilePath</td>
+                                        <td>@val.Remark</td>
+                                        <td><a href="/Content/UploadedFiles/@val.FilePath" target="_blank">View</a></td>
+                                        <td><button class="redbtn" id="appbtn" style="border-radius:8px" onclick="location.href='@Url.Action("SaveMaterial", "Home", new { num = @val.Sl_No,ID=Model.LoginID,Pass=Model.Password })'">Approve </button></td>
+                                        <td><button class="redbtn" style="border-radius:8px" onclick="location.href='@Url.Action("DeleteMaterial", "Home", new {num=val.Sl_No, ID=Model.LoginID,Pass=Model.Password})';">Delete </button></td>
+                                    </tr>
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //$(document).ready(function () {
+            //})
+            //function DeleteConfirm(n) {
+            //    debugger;
+            //    console.log(n);
+            //    $("#exampleModal").modal();
+            //    debugger;
+
+            //}
+            @*$(function () {
+
+                $(".delbtn").click(function (e) {
+                    console.log($(this).attr("id"));
+                    debugger;
+                    var d = $(this).attr("id");
+                    window.location.href='@Url.Action("DeleteMaterial", "Home", new {num=d, ID=Model.LoginID,Pass=Model.Password})';
+                });
+
+            });*@
+
+        </script>

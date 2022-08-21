@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EduFA</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    @*<link href="@Url.Content("~/Content/ThemeCss/css/bootstrap.min.css")" rel="stylesheet" />*@
+    <link href="@Url.Content("~/Content/ThemeCss/css/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/ThemeCss/css/responsive.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/ThemeCss/css/font-awesome.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/ThemeCss/css/fullcalendar.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/ThemeCss/css/dataTables.bootstrap.min.css")" rel="stylesheet" />
+    @*<link href="@Url.Content("~/Content/ThemeCss/css/select2.min.css")" rel="stylesheet" />*@
+    <link href="@Url.Content("~/Content/ThemeCss/css/bootstrap-datetimepicker.min.css")" rel="stylesheet" />
+    @*<link href="@Url.Content("~/Content/ThemeCss/plugins/morris/morris.css")" rel="stylesheet" />*@
+    <link href="@Url.Content("~/Content/ThemeCss/css/style.css")" rel="stylesheet" />
+
+    @*<link href="~/Content/css/simple-sidebar.css" rel="stylesheet">*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+
+
+    <script src="@Url.Content("~/Content/ThemeCss/js/jquery-3.2.1.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/ThemeCss/js/bootstrap.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/js/_LayoutCtel.js")"></script>
+</head>
+<body>
+
+    <header id="header">
+
+        @*@Html.Partial("_LayoutMainHeaderPartial")*@
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:white">
+            <div class="col-sm-6 navbar-header">
+                @*<a class="navbar-brand" href="#">Brand</a>*@
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>*@
+                <button class="button col-sm-2 navbar-toggler navbar-toggle" style="float:left; display:inline; margin-left:-7% " type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    ☰
+                </button>
+                <a href="#" class="logo_360"><img src="~/Content/Images/logo_eduFA[160].png" onclick="gotoHome()" style="height:70px;margin-top:-19% "></a>
+            </div>
+            <div class="col-sm-6">
+                <a href="#" onclick="adminlogin()" style="float:right;" class="logo_360"><img src="~/Content/Images/admin.png" style="height:39px;margin-top:3%;float:right "></a>
+            </div>
+            <div class="navbar-collapse collapse" style="font-size:27px">
+                <ul class="nav navbar-nav">
+                    <li class="#home" onclick="gotoHome()"><a href="#" style="float:right;">Home</a></li>
+                    <li><a href="#about" style="float:right;" onclick="gotoMaterials()">Upload Materials</a></li>
+                    <li><a href="#donation" style="float:right;" onclick="ShowMaterials()">Show Materials</a></li>
+                    <li><a href="#contact" style="float:right;" onclick="ContactUs()">Contact Us</a></li>
+                </ul>
+                @*<div class="navbar-header navbar-right">
+                <p class="navbar-text">
+                    <a href="#" class="navbar-link">Username</a>
+                </p>
+            </div>*@
+            </div>
+            <div class="col-sm-12">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" id="Home" onclick="gotoHome(this.id)" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="gotoMaterials()" href="#">Upload Materials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="ShowMaterials()" href="#">Materials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="gotoAdmin()" href="#">Admin Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <aside class="col-sm-6" style="float: right;">
+        </aside>
+        @*<footer>
+            @Html.Partial("_LayoutMainLeftPartial")
+        </footer>*@
+        @RenderBody()
+    </div>
+    <div class="sidebar-overlay" data-reff="#sidebar"></div>
+    <script src="@Url.Content("~/Content/ThemeCss/js/jquery.slimscroll.js")"></script>
+    @*<script src="@Url.Content("~/Content/ThemeCss/js/select2.min.js")"></script>*@
+    <script src="@Url.Content("~/Content/ThemeCss/js/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/ThemeCss/js/bootstrap-datetimepicker.min.js")"></script>
+    @*<script src="@Url.Content("~/Content/ThemeCss/plugins/morris/morris.min.js")"></script>
+        <script src="@Url.Content("~/Content/ThemeCss/plugins/raphael/raphael-min.js")"></script>*@
+    <style>
+
+        .navbar-header {
+            float: none;
+        }
+
+        .navbar-left, .navbar-right {
+            float: none !important;
+        }
+
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+
+        .navbar-collapse.collapse {
+            display: none !important;
+        }
+
+        .navbar-nav {
+            float: none !important;
+            margin-top: 7.5px;
+        }
+
+            .navbar-nav > li {
+                float: none;
+            }
+
+                .navbar-nav > li > a {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+        .collapse.in {
+            display: block !important;
+        }
+    </style>
+    @*<script>
+        $('.nav-item .nav-link').click(function () {
+            $('.nav-item .nav-link').removeClass('active');
+            /*$(this).addClass('active');*/
+            debugger;
+            $(this).classList.add("active");
+
+            comsole.log($(this).classList);
+        })
+    </script>*@
+</body>
+</html>
